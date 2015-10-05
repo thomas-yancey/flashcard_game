@@ -10,7 +10,12 @@ This will be our most complicated web application yet.  In addition to getting o
 ### Release 0: Build the MVP
 We're going to begin by focusing on building the minimum viable product (MVP).  There are a lot of interesting features a flashcard application can include, but let's start by getting the core functionality in place.  We have some requirements and descriptions of our application.  These might not be as complete and comprehensive as we'd like; we'll need to fill in some of the blanks ourselves.
 
-**User story:**  As a user, I visit the homepage and see a list of decks.  I click on the name of a deck and play a round with that deck.  After the round, I see stats on how well I performed.  If I've logged in, I can then visit my profile to see stats for all the rounds I've played.
+**Functional Specification:**  
+
+1.  A `User` visits the homepage and see a list of `Deck`s
+2.  `User` clicks on the name of a `Deck` and plays a `Round` with that `Deck`
+3.  After the `Round`, the `User` sees performance statistics how well they performed
+4.  If logged in, `User` can visit their profile to see stats for all the rounds the `User` has played.
 
 **Round description:**  After a user selects a deck, they play a round.  We have specific requirements for what should happen when a user plays a  round.
 
