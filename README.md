@@ -8,7 +8,19 @@ This will be our most complicated web application yet.  In addition to getting o
 
 ## Releases
 ### Release 0: Build the MVP
-We're going to begin by focusing on building the minimum viable product (MVP).  There are a lot of interesting features a flashcard application can include, but let's start by getting the core functionality in place.  We have some requirements and descriptions of our application.  These might not be as complete and comprehensive as we'd like; we'll need to fill in some of the blanks ourselves.
+
+We're going to begin by focusing on building the minimum viable product (MVP).
+There are a lot of interesting features a flashcard application can include,
+but let's start by getting the core functionality in place.  We have some
+requirements and descriptions of our application.  These might not be as
+complete and comprehensive as we'd like; we'll need to fill in some of the
+blanks ourselves.
+
+Here's an image that sums up building an MVP.  At every step you have a
+functional body of code (in `master`) that solves the customer's need with
+higher and higher levels of satisfaction.
+
+![MVP Building Image](./how-to-build-a-minimum-viable-product.jpg)
 
 **User story:**  As a user, I visit the homepage and see a list of decks.  I click on the name of a deck and play a round with that deck.  After the round, I see stats on how well I performed.  If I've logged in, I can then visit my profile to see stats for all the rounds I've played.
 
