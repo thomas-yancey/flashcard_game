@@ -1,0 +1,7 @@
+post "/cards" do
+  binding.pry
+  card = Card.create(params[:card])
+  @deck = Deck.find_by(id: params[:deck_id])
+  @deck.cards << card
+  erb :"cards/new"
+end

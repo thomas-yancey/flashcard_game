@@ -1,4 +1,7 @@
 get '/' do
-  @decks = Deck.all
-  erb :index
+  if logged_in?
+    redirect '/decks'
+  else
+    erb :index
+  end
 end

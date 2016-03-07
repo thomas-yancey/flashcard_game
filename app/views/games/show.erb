@@ -1,0 +1,5 @@
+<h2><%= @curr_card.question %></h2>
+<form action="/games/guesses" method="post">
+  <input type="text" name="guess" placeholder=<%= @curr_card.answer %>>
+  <input type="submit" name="submit">
+</form>

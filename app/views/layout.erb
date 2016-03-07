@@ -20,9 +20,13 @@
 <body>
   <nav>
     <ul>
-      <li><a href="/users/sign_up">Sign up</a></li>
-      <li><a href="/users/login">Log in</a></li>
-      <li><a href="/sessions/logout">Log out</a></li>
+        <li class="left"><a href="/">Home</a></li>
+      <% if session[:user] %>
+        <li><a href="/sessions/logout">Log out</a></li>
+      <% else %>
+        <li><a href="/users/new">Sign up</a></li>
+        <li><a href="/users/login">Log in</a></li>
+      <% end %>
     </ul>
   </nav>
   <div class="container">

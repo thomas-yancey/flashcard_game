@@ -1,0 +1,16 @@
+<% if @deck.cards.any? %>
+  <% @deck.cards.each do |card| %>
+    <%= "<p>Question: #{card.question}</p>" %>
+    <%= "<p>Answer: #{card.answer}</p>" %>
+  <% end %>
+  <form action="/decks/<%= @deck.id %>" method="get">
+    <input type="submit" value="DONE?">
+  </form>
+<% end %>
+<h3>New card for Deck <%= @deck.name %></h3>
+<form action="/cards" method="post">
+  <input type="hidden", name="deck_id" value=<%= @deck.id %>>
+  <input type="text", name="card[question]", placeholder="Question" required>
+  <input type="text", name="card[answer]", placeholder="Answer" required>
+  <input type="submit", value="submit">
+</form>

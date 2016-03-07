@@ -1,0 +1,17 @@
+<% @decks.each do |deck| %>
+    <div class="deck-show">
+      <ul>
+        <li class="name"><%= deck.name %></a></li>
+        <li><a href="decks/<%= deck.id %>">View Deck</a></li>
+        <li>
+          <form action="/games" method="POST">
+            <input type="hidden" name="deck_id" value="<%= deck.id %>">
+            <input type="submit" value="Play Game">
+          </form>
+        </li>
+        <% if deck.user_id == session[:user] %>
+          <li><a href="decks/<%= deck.id %>/edit">Edit Deck</a></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>

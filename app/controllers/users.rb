@@ -3,11 +3,21 @@ get "/users/new" do
 end
 
 post "/users" do
-  @user = User.create(params[:user])
-  redirect "/users/#{@user.id}"
+  @user = User.new(params[:user])
+  @user.password = params[:password] unless params[:password].empty?
+
+  if @user.save
+    session[:user] = @user.id
+    redirect "/users/#{@user.id}"
+  else
+    @errors = @user.errors.full_messages
+    erb :"users/new"
+  end
 end
 
 get "/users/:id/edit" do
+
+  redirect "/" unless logged_in?
   @user = User.find_by(id: params[:id])
   erb :"users/edit"
 end

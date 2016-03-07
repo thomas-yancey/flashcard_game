@@ -26,8 +26,36 @@ ul {
   padding: 0;
 }
 
+.deck-show {
+  width: 100%;
+  clear: both;
+  padding-left: 20px;
+  font-size: 20px;
+  margin: 0 auto;
+}
+
+.deck-show li.name {
+  text-align: center;
+}
+
+.deck-show li {
+  padding: 10px;
+  float: left;
+}
+
+li.left {
+  float: left;
+  padding-left: 20px;
+}
+
 li {
   float: right;
   padding-right: 20px;
   width: 60px;
+}
+
+.show-card li {
+  width: 100%;
+  text-align: left;
+  padding-bottom: 5px;
 }
