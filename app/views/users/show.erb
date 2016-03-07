@@ -1,2 +1,7 @@
 <h2>Username: <%= @user.username %></h2>
 <h2>email: <%= @user.email %></h2>
+<% @all_stats.each do |stats| %>
+  <% stats.each do |card, count| %>
+  <p><%= "#{Card.find(card).question}? #{count} attempts" %>
+<% end %>
+<% end %>

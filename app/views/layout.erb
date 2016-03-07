@@ -23,6 +23,7 @@
         <li class="left"><a href="/">Home</a></li>
       <% if session[:user] %>
         <li><a href="/sessions/logout">Log out</a></li>
+        <li><a href="/users/<%=session[:user]%>">profile</a></li>
       <% else %>
         <li><a href="/users/new">Sign up</a></li>
         <li><a href="/users/login">Log in</a></li>

@@ -9,6 +9,16 @@ class User < ActiveRecord::Base
   has_many :games
   has_many :guesses, through: :cards
 
+  def all_games_played
+    Game.where(user_id: self.id).pluck(:id)
+  end
+
+  def all_stats
+    all_stats = self.all_games_played.map do |game_id|
+      Game.find(game_id).stats_hash
+    end
+    all_stats
+  end
 
   include BCrypt
   def password

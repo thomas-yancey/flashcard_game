@@ -29,6 +29,7 @@ end
 
 get "/users/:id" do
   @user = User.find_by(id: params[:id])
+  @all_stats = @user.all_stats
   erb :"users/show"
 end
 

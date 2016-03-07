@@ -1,2 +1,3 @@
-<%= Game.find_by(id: session[:game]) %>
-<%= session.clear %>
+<% @stats.each do |card, count| %>
+  <p><%= "#{Card.find(card).question}? #{count} attempts" %>
+<% end %>

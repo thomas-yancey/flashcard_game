@@ -3,15 +3,17 @@
       <ul>
         <li class="name"><%= deck.name %></a></li>
         <li><a href="decks/<%= deck.id %>">View Deck</a></li>
+        <% if deck.user_id == session[:user] %>
+          <li><a href="decks/<%= deck.id %>/edit">Edit Deck</a></li>
+        <% end %>
         <li>
           <form action="/games" method="POST">
             <input type="hidden" name="deck_id" value="<%= deck.id %>">
             <input type="submit" value="Play Game">
           </form>
         </li>
-        <% if deck.user_id == session[:user] %>
-          <li><a href="decks/<%= deck.id %>/edit">Edit Deck</a></li>
-        <% end %>
+        <li>
       </ul>
     </div>
 <% end %>
+<a href="/decks/new"><h3>CreateNewDeck</h3></a>

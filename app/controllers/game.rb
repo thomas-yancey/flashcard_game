@@ -5,11 +5,19 @@ post '/games' do
   session[:curr_card] = @curr_card.id
   erb :"games/show"
 end
+
 get '/games' do
   @game = Game.find_by(id: session[:game])
 
   @curr_card = @game.next_card
   session[:curr_card] = @curr_card.id
+
+  @last_guess = Guess.find(session[:guess])
+  if @last_guess.status == false
+    @error = "Wrong: correct answer is #{Card.find(@last_guess.card_id).answer}"
+  else
+    @error = "CORRECT"
+  end
 
   erb :"/games/show"
 end
@@ -29,9 +37,13 @@ post '/games/guesses' do
 
   guess.status_flip(params[:guess], curr_card.answer)
 
+  session[:guess] = guess.id
   @game = Game.find_by(id: session[:game])
   if @game.game_over?
-    redirect "/games/stats"
+    @stats = @game.stats_hash
+    session[:game] = nil
+    session[:curr_card] = nil
+    erb :"/games/stats"
   else
     redirect "/games"
   end
