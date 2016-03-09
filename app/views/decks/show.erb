@@ -1,6 +1,7 @@
+<dl class="show-card">
 <% @deck.cards.each do |card| %>
-  <ul class="show-card">
-    <li>Question: <%= card.question %></li>
-    <li>Answer: <%= card.answer %></li>
-  </ul>
+    <dt>Question: <%= card.question %></dt>
+    <dd>Answer: <%= card.answer %></dd>
 <% end %>
+</dl>
+

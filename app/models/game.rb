@@ -11,11 +11,15 @@ class Game < ActiveRecord::Base
   end
 
   def stats_hash
-    answer_hash = {}
-    all_cards.each do |card_id|
-      answer_hash[card_id] = Guess.where(game_id: self.id, card_id: card_id).count
+    stats_hash = {}
+    self.deck.cards.each do |card|
+      stats_hash[card] = Guess.where(game_id: self.id, card_id: card.id).count
     end
-    answer_hash
+    stats_hash
+  end
+
+  def grab_deck_name
+    self.deck.name
   end
 
   def next_card

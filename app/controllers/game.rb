@@ -40,6 +40,7 @@ post '/games/guesses' do
   session[:guess] = guess.id
   @game = Game.find_by(id: session[:game])
   if @game.game_over?
+    @deck_name = @game.grab_deck_name
     @stats = @game.stats_hash
     session[:game] = nil
     session[:curr_card] = nil
@@ -50,6 +51,5 @@ post '/games/guesses' do
 end
 
 # get "games/:id/cards/:id" do
-#   binding.pry
 #   @game = Game.find_by(params[])
 # end

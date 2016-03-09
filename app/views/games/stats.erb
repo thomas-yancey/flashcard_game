@@ -1,3 +1,7 @@
-<% @stats.each do |card, count| %>
-  <p><%= "#{Card.find(card).question}? #{count} attempts" %>
+
+<dl id="game stats"> Game <%= @deck_name %>
+<% @stats.each do |card, count_of_attempts| %>
+  <dt><%= "#{card.question}" %></dt>
+  <dl><%= "#{count_of_attempts} attempts" %></dl>
 <% end %>
+</dl>

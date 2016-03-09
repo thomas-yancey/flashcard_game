@@ -15,14 +15,12 @@ post "/decks" do
 end
 
 get "/decks/:id/cards/new" do
-  binding.pry
   redirect "/" unless logged_in?
   @deck = Deck.find_by(id: params[:id])
   erb :"cards/new"
 end
 
 get "/decks/:id/edit" do
-  # binding.pry
   @deck = Deck.find_by(id: params[:id])
   redirect "/" unless @deck.user_id == session[:user]
 
